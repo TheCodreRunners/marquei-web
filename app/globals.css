@@ -20,7 +20,7 @@ body {
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 112, 60%, 74%;
+    --primary: 173, 48%, 57%;
     --primary-foreground: 0 0% 98%;
     --secondary: 124, 64%, 91%;
     --secondary-foreground: 0 0% 9%;
@@ -39,14 +39,28 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 180, 60%, 37%; /*173, 48%, 57%;*/
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 112, 60%, 74%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Text-vars */
+    --paragraph-primary: 0 0% 3.9%;
+    --paragraph-secondary: 0 0% 14.9%;
+    --paragraph-muted: 0 0% 63.9%;
+    --paragraph-paper: 0 0% 98%;
+    --paragraph-shade: 0, 0%, 96%;
+    /* Button-vars */
+    --button-primary: 173, 48%, 57%;
+    --button-primary-foreground: 0 0% 98%;
+    --button-secondary: 124, 64%, 91%;
+    --button-secondary-foreground: 0 0% 9%;
+    --button-muted: 0 0% 96.1%;
+    --button-muted-foreground: 0 0% 45.1%;
+    --button-accent: 0 0% 96.1%;
   }
   .dark {
     --background: 0 0% 3.9%;

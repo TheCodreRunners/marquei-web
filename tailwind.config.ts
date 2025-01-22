@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -51,6 +50,15 @@ const config: Config = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
+			paragraph:{
+				DEFAULT: 'hsl(var(--paragraph))',
+				primary: 'hsl(var(--paragraph-primary))',
+				secondary: 'hsl(var(--paragraph-secondary))',
+				muted: 'hsl(var(--paragraph-muted))',
+				paper: 'hsl(var(--paragraph-paper))',
+				shade: 'hsl(var(--paragraph-shade))'
+
+			},
   			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
   				foreground: 'hsl(var(--sidebar-foreground))',
@@ -60,7 +68,17 @@ const config: Config = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+			},
+			button:{
+				DEFAULT: 'hsl(var(--button-background))',
+				foreground: 'hsl(var(--button-foreground))',
+				primary: 'hsl(var(--button-primary))',
+				'primary-foreground': 'hsl(var(--button-primary-foreground))',
+				accent: 'hsl(var(--button-accent))',
+				'accent-foreground': 'hsl(var(--button-accent-foreground))',
+				border: 'hsl(var(--button-border))',
+				ring: 'hsl(var(--button-ring))'
+			}
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

@@ -1,11 +1,10 @@
-import { AppSidebar } from "@/components/Layout/sidebar";
 import Image from "next/image";
 
 export default function Home() {
   return (
 
     <div className="w-full flex justify-center flex-col items-center gap-8">
-          <AppSidebar></AppSidebar>
+       
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"

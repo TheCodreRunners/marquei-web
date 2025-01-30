@@ -2,16 +2,8 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import TabsForm from "@/components/custom/TabForm/TabForm";
+import ClinicForm from "@/components/features/ClinicForm/ClinicForm";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Nome deve ter pelo menos 2 caracteres." }),
@@ -42,99 +34,22 @@ export default function ClinicSettings() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center gap-8">
-      <h1 className="text-2xl font-bold">Configurações da Clínica</h1>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 bg-gray-100 p-6 rounded-lg w-full max-w-3xl">
-          <h2 className="text-xl font-semibold mb-4">Informações Institucionais</h2>
+    <div className="w-full flex flex-col items-center gap-8 py-5">
 
-          {/** Grid de 2 colunas (ajusta automaticamente para 1 coluna no mobile) **/}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-semibold text-gray-700">Nome</FormLabel>
-                  <FormControl>
-                    <Input {...field} placeholder="Nome da Clínica" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-black focus:ring-black" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-semibold text-gray-700">E-mail</FormLabel>
-                  <FormControl>
-                    <Input {...field} placeholder="E-mail" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-black focus:ring-black" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="cnpj"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-semibold text-gray-700">CNPJ</FormLabel>
-                  <FormControl>
-                    <Input {...field} placeholder="CNPJ" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-black focus:ring-black" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="address"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-semibold text-gray-700">Endereço</FormLabel>
-                  <FormControl>
-                    <Input {...field} placeholder="Endereço" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-black focus:ring-black" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="phone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-semibold text-gray-700">Telefone</FormLabel>
-                  <FormControl>
-                    <Input {...field} placeholder="Telefone" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-black focus:ring-black" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="crm"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-semibold text-gray-700">CRM</FormLabel>
-                  <FormControl>
-                    <Input {...field} placeholder="CRM" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-black focus:ring-black" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
 
-          <Button type="submit" className="bg-black text-white p-3 rounded-full w-full font-semibold hover:bg-gray-800 transition">
-            Salvar
-          </Button>
-        </form>
-      </Form>
+      <h1 className="scroll-m-20 text-3xl font-bold tracking-tight">Configurações da Clínica</h1>
+
+
+      <TabsForm tabs={[
+        { name: "Geral", content: ClinicForm()},
+        { name: "Usuários", content: ClinicForm() },
+        { name: "Configurações", content: ClinicForm()},
+      ]} />
+
+
+     
+
     </div>
   );
 }
+

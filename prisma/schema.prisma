@@ -8,24 +8,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Client {
+model tabela_Client {
   id        Int       @id @default(autoincrement())
   name      String
-  users     User[]
-  companies Company[]
+  users     tabela_user[]
+  companies tabela_Company[]
 }
 
-model Company {
+model tabela_Company {
   id       Int     @id @default(autoincrement())
   name     String
   cnpj     String  @unique
   address  String
   logoUrl  String?
   clientId Int
-  client   Client  @relation(fields: [clientId], references: [id])
+  client   tabela_Client  @relation(fields: [clientId], references: [id])
 }
 
-model CronControl {
+model tabela_cron_control {
   id        Int      @id @default(autoincrement())
   name      String   @unique
   isActive  Boolean  @default(false)
@@ -34,7 +34,7 @@ model CronControl {
   updatedAt DateTime @updatedAt
 }
 
-model Exams {
+model tabela_exams {
   id          Int      @id @default(autoincrement())
   logoUrl     String
   name        String
@@ -43,7 +43,7 @@ model Exams {
   updatedAt   DateTime @updatedAt
 }
 
-model User {
+model tabela_user {
   id        Int      @id @default(autoincrement())
   name      String
   email     String   @unique
@@ -51,7 +51,7 @@ model User {
   phone     String
   address   String
   clientId  Int
-  client    Client   @relation(fields: [clientId], references: [id])
+  client    tabela_Client   @relation(fields: [clientId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

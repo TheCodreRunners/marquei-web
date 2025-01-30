@@ -1,22 +1,18 @@
 "use client"
 import * as React from "react";
 import { ChevronsUpDown } from "lucide-react";
+import { DropdownMenu, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
+import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "../ui/sidebar";
 
-import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import {
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
 
-} from "@/components/ui/sidebar";
 
 export function TeamSwitcher({
     teams,
 }: {
-    teams: {
-        name: string
-        logo: React.ElementType
-        plan: string
+    readonly teams: {
+        readonly name: string
+        readonly logo: React.ElementType
+        readonly plan: string
     }[]
 }) {
 

@@ -1,32 +1,20 @@
 "use client"
 
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@radix-ui/react-collapsible"
 import { ChevronRight, type LucideIcon } from "lucide-react"
+import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton } from "../ui/sidebar"
 
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
-import {
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
-} from "@/components/ui/sidebar"
+
 
 export function NavMain({
   items,
 }: {
-  items: {
+  readonly items: readonly {
     title: string
     url: string
     icon?: LucideIcon
     isActive?: boolean
-    items?: {
+    items?: readonly {
       title: string
       url: string
     }[]
@@ -45,8 +33,8 @@ export function NavMain({
           >
             <SidebarMenuItem   >
               <CollapsibleTrigger className="text-paragraph-shade hover:text-paragraph-primary" asChild>
-                <SidebarMenuButton   tooltip={item.title } >
-                  {item.icon && <item.icon  />}
+                <SidebarMenuButton tooltip={item.title} >
+                  {item.icon && <item.icon />}
                   <span className="" >{item.title}</span>
                   <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </SidebarMenuButton>

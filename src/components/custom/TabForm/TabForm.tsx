@@ -18,17 +18,18 @@ export type TabsFormProps = {
 
 const TabsForm = ({ tabs }: TabsFormProps) => {
     const length = tabs.length
+    const cols = `grid w-full  grid-cols-${length} gap-4`
     return (
         <Tabs defaultValue={tabs[0]?.name} className="w-full p-5">
-            <TabsList className={`grid w-full grid-cols-${length} gap-4`}>
-                {tabs.map((tab, index) => (
-                    <TabsTrigger key={index} value={tab.name}>
+            <TabsList className={cols}>
+                {tabs.map((tab) => (
+                    <TabsTrigger key={tab.name} value={tab.name}>
                         {tab.name}
                     </TabsTrigger>
                 ))}
             </TabsList>
-            {tabs.map((tab, index) => (
-                <TabsContent key={index} value={tab.name}>
+            {tabs.map((tab) => (
+                <TabsContent key={tab.name} value={tab.name}>
                     <Card>
                         <CardHeader>
                             <CardTitle>{tab.name}</CardTitle>

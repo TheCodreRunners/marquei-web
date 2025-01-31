@@ -33,7 +33,6 @@ export default function RootLayout({
       >
         <SidebarProvider>
           <AppSidebar />
-
           <SidebarTrigger className=" sm:hidden" />
           {children}
         </SidebarProvider>

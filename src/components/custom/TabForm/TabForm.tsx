@@ -17,8 +17,8 @@ export type TabsFormProps = {
 }
 
 const TabsForm = ({ tabs }: TabsFormProps) => {
-    const length = tabs.length
-    const cols = `grid w-full  grid-cols-${length} gap-4`
+
+    const cols = `grid w-full  grid-cols-3 gap-4`
     return (
         <Tabs defaultValue={tabs[0]?.name} className="w-full p-5">
             <TabsList className={cols}>
@@ -38,7 +38,8 @@ const TabsForm = ({ tabs }: TabsFormProps) => {
                                     {tab.description}
                                 </CardDescription>
                             )}
-                        </CardHeader>   <CardContent className="space-y-2">
+                        </CardHeader>
+                        <CardContent className="space-y-2">
                             {tab.content}
                         </CardContent>
                         <CardFooter>

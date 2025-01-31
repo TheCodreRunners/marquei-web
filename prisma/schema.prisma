@@ -1,0 +1,57 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x", "debian-openssl-1.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id        Int       @id @default(autoincrement())
+  name      String
+  users     user[]
+  companies company[]
+}
+
+model company {
+  id       Int     @id @default(autoincrement())
+  name     String
+  cnpj     String  @unique
+  address  String
+  logoUrl  String?
+  clientId Int
+  client   Client  @relation(fields: [clientId], references: [id])
+}
+
+model cron_control {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  isActive  Boolean  @default(false)
+  interval  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model exams {
+  id          Int      @id @default(autoincrement())
+  logoUrl     String
+  name        String
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model user {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  phone     String
+  address   String
+  clientId  Int
+  client    Client   @relation(fields: [clientId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

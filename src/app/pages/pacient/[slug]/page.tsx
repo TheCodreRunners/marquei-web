@@ -1,4 +1,4 @@
-'use client';;
+'use client';
 
 import TabsForm from "@/components/custom/TabForm/TabForm";
 import PacienteAddressForm from "@/components/features/PacientForm/PacientAddressForm";

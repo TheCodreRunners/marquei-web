@@ -1,4 +1,5 @@
 
+'use client';
 import TabsForm from "@/components/custom/TabForm/TabForm";
 import ClinicForm from "@/components/features/ClinicForm/ClinicForm";
 

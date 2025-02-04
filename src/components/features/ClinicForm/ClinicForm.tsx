@@ -1,6 +1,5 @@
+'use client';
 import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
@@ -10,19 +9,22 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Nome deve ter pelo menos 2 caracteres." }),
-  email: z.string().email({ message: "E-mail inválido." }),
-  cnpj: z.string().min(14, { message: "CNPJ deve ter pelo menos 14 caracteres." }),
-  address: z.string().min(5, { message: "Endereço deve ter pelo menos 5 caracteres." }),
-  phone: z.string().min(10, { message: "Telefone deve ter pelo menos 10 caracteres." }),
-  crm: z.string().min(6, { message: "CRM deve ter pelo menos 6 caracteres." }),
-});
-
-type ClinicFormData = z.infer<typeof formSchema>;
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function ClinicForm() {
+
+  const formSchema = z.object({
+    name: z.string().min(2, { message: "Nome deve ter pelo menos 2 caracteres." }),
+    email: z.string().email({ message: "E-mail inválido." }),
+    cnpj: z.string().min(14, { message: "CNPJ deve ter pelo menos 14 caracteres." }),
+    address: z.string().min(5, { message: "Endereço deve ter pelo menos 5 caracteres." }),
+    phone: z.string().min(10, { message: "Telefone deve ter pelo menos 10 caracteres." }),
+    crm: z.string().min(6, { message: "CRM deve ter pelo menos 6 caracteres." }),
+  });
+
+  type ClinicFormData = z.infer<typeof formSchema>;
+
   const form = useForm<ClinicFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {

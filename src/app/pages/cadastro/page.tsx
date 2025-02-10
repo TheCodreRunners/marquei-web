@@ -1,38 +1,48 @@
-import Image from "next/image";
+'use client'; // Adicione esta linha para usar hooks do React
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 export default function Cadastro() {
   return (
-    <div className="w-full min-h-screen flex justify-center flex-col items-center gap-8 bg-gray-100 dark:bg-gray-900 p-8">
-      <main className="flex flex-col gap-8 items-center sm:items-start bg-white dark:bg-gray-800 p-10 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Dados Pessoais</h1>
-        <form className="flex flex-col gap-4 text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)] w-full">
-          <input
-            type="text"
-            placeholder="Nome Completo"
-            className="border border-gray-300 dark:border-gray-700 rounded px-3 py-2 w-full"
-          />
-          <input
-            type="text"
-            placeholder="RG"
-            className="border border-gray-300 dark:border-gray-700 rounded px-3 py-2 w-full"
-          />
-          <input
-            type="text"
-            placeholder="CPF"
-            className="border border-gray-300 dark:border-gray-700 rounded px-3 py-2 w-full"
-          />
-          <input
-            type="date"
-            className="border border-gray-300 dark:border-gray-700 rounded px-3 py-2 w-full"
-          />
-          <button
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-primary text-white gap-2 hover:bg-primary/90 text-sm sm:text-base h-12 px-6 w-full"
-            type="submit"
-          >
-            Cadastrar
-          </button>
-        </form>
-      </main>
+    <div className="w-full min-h-screen flex justify-center flex-col items-center gap-8 p-4 md:p-8">
+      {/* Título */}
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+        Dados Pessoais
+      </h1>
+
+      {/* TabsForm com abas */}
+      <Card className="w-full max-w-2xl p-6">
+        <Tabs defaultValue="cadastro" className="w-full">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="cadastro">Cadastro</TabsTrigger>
+            <TabsTrigger value="login">Login</TabsTrigger>
+          </TabsList>
+
+          {/* Aba de Cadastro */}
+          <TabsContent value="cadastro" className="mt-6">
+            <form className="flex flex-col gap-4 w-full">
+              <Input type="text" placeholder="Nome Completo" />
+              <Input type="text" placeholder="RG" />
+              <Input type="text" placeholder="CPF" />
+              <Input type="date" />
+              <Button type="submit" className="w-full mt-4">
+                Cadastrar
+              </Button>
+            </form>
+          </TabsContent>
+
+          {/* Aba de Login */}
+          <TabsContent value="login" className="mt-6">
+            <div className="flex flex-col gap-4 w-full">
+              <Input type="text" placeholder="E-mail" />
+              <Input type="password" placeholder="Senha" />
+            </div>
+          </TabsContent>
+        </Tabs>
+      </Card>
     </div>
   );
 }

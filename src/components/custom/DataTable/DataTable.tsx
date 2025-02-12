@@ -14,7 +14,7 @@ export function DataTable({
   dataList,
   rowKeys,
 }: {
-  dataList: RowDataType;
+  dataList: any[];
   rowKeys: {
     id: string;
     name: string;

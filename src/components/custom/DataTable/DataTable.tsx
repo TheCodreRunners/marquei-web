@@ -8,7 +8,7 @@ import {
   Table,
 } from "@/components/ui/table";
 
-export type RowDataType = Record<string, unknown>[] | null;
+export type RowDataType = any[] | null;
 
 export function DataTable({
   dataList,
@@ -32,7 +32,7 @@ export function DataTable({
         </TableHeader>
         <TableBody>
           {dataList &&
-            dataList.map((dataItem: Record<string, unknown>) => (
+            dataList.map((dataItem: any) => (
               <TableRow key={dataItem.id as string}>
                 {rowKeys.map((key) => (
                   <TableCell key={key.id}>{dataItem[key.id]}</TableCell>

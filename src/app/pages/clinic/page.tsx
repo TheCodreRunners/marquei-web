@@ -1,10 +1,7 @@
-'use client';
-
+'use client';;
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
-import { TableHead, TableRow, TableHeader, TableBody, TableCell } from '@/components/ui/table';
-import { Card } from '@/components/ui/card';
 import {
   Pagination,
 } from '@/components/ui/pagination';
@@ -102,7 +99,7 @@ export default function ClinicList() {
   const displayedClinics = filteredClinics.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="w-full  mx-auto p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-4">Lista de Clínicas</h1>
       <div className="flex justify-between items-center mb-4">
         <Input {...register('search')} placeholder="Buscar por Nome" className="w-1/3 p-2 border rounded-lg" />

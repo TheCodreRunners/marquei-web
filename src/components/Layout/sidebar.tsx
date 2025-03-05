@@ -41,23 +41,19 @@ const data = {
     ],
     navMain: [
         {
-            title: "Clinica",
+            title: "Clientes",
             url: "/pages/clinica",
             icon: SquareTerminal,
             isActive: true,
             items: [
                 {
-                    title: "Geral",
-                    url: "/geral",
+                    title: "Clinicas",
+                    url: "/pages/clinic",
                 },
                 {
-                    title: "Starred",
-                    url: "#",
-                },
-                {
-                    title: "Settings",
-                    url: "#",
-                },
+                    title: "Pacientes",
+                    url: "/pages/patient",
+                }
             ],
         },
         {
